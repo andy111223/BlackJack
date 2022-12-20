@@ -1,0 +1,24 @@
+File savedHashMaps = new File("ranking.list")
+Map<String, Long> map = new HashMap<>();
+
+public void saveMap() {
+    try{
+        ObjectOutputStream oos = new ObjectOutputStream (new FileOutputStream(savedHashMaps));
+        oos.writeObject(map);
+        oss.close();
+        } catch (Exception e) {
+        //obsługa błędów
+        }
+    }
+     public void loadMap() {
+     try {
+        ObjectInputStream ois = new ObjectInputStream( new FileInputStream(savedHashMaps));
+        Object readMap = ois.readObject();
+        if (readMap instanceof HashMap) {
+            map.putAll((HashMap) roadMap);
+        }
+        ois.close();
+        }catch (Exception e) {
+        //obsługa błędów
+        }
+    }
